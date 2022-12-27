@@ -17,9 +17,12 @@ function onFormInput(event) {
 
 function onFormSubmit(event) {
   event.preventDefault();
-  localStorage.removeItem('feedback-form-state');
-  formEl.reset();
-  console.log(data);
+
+  if (formEl.elements.email.value && formEl.elements.message.value) {
+    localStorage.removeItem('feedback-form-state');
+    formEl.reset();
+    console.log(data);
+  }
 }
 
 function fillFormInputs() {
